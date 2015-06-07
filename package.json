@@ -1,24 +1,54 @@
 {
   "name": "tentacle-protocol-buffer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Protocols for the Elders of The Tentacle",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/octoblu/tentacle-protocol-buffer.git"
   },
+
   "keywords": [
     "microblu",
     "octoblu",
     "the-tentacle"
   ],
+
   "author": "redaphid",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/octoblu/tentacle-protocol-buffer/issues"
   },
-  "homepage": "https://github.com/octoblu/tentacle-protocol-buffer"
+
+  "homepage": "https://github.com/octoblu/tentacle-protocol-buffer",
+
+  "dependencies": {
+    "coffee-script": "^1.9.2",
+    "debug": "^2.2.0",
+    "lodash": "^3.9.1",
+    "protobufjs": "git://github.com/dcodeIO/ProtoBuf.js.git#master"
+  },
+  "jest": {
+    "scriptPreprocessor": "__tests__/helpers/coffee-preprocessor.js",
+    "testFileExtensions": [
+      "coffee",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "coffee",
+      "js",
+      "json"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/helpers/"
+    ]
+  },
+  "devDependencies": {
+    "jest-cli": "^0.4.5"
+  }
 }

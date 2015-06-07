@@ -6,3 +6,23 @@ message Pin {
   required uint32 number = 1;
   required uint32 value = 2;
 }
+
+message Microblu {
+  enum Topic {
+    digitalRead = 1;
+    digitalWrite = 2;
+    analogRead = 3;
+    servoWrite = 4;
+    pwmWrite = 5;
+    i2cWrite = 6;
+    i2cRead = 7;
+  }
+
+  message Payload {
+    optional int32 pin    = 1;
+    optional string value = 2;
+  }
+
+  required Topic topic = 1;
+  required Payload payload = 2;
+}
