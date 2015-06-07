@@ -16,6 +16,7 @@ message Microblu {
     pwmWrite = 5;
     i2cWrite = 6;
     i2cRead = 7;
+    config = 8;
   }
 
   message Payload {
