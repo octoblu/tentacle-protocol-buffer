@@ -4,8 +4,8 @@ ProtoBuf = require 'protobufjs'
 class TentacleTransformer
   constructor: (opts={}) ->
     @buffer = new Buffer 0
-    @path = opts.path || __dirname + '/microblu.proto'
-    @messageType = opts.message || 'MicrobluState'
+    @path = opts.path || __dirname + '/tentacle-message.proto'
+    @messageType = opts.message || 'TentacleMessage'
 
     builder = ProtoBuf.loadProtoFile @path
     @MicrobluProto = builder.build @messageType

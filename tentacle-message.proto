@@ -1,13 +1,9 @@
-message MicrobluState {
-  repeated Pin pins = 1;
-}
-
 message Pin {
   required uint32 number = 1;
   required uint32 value = 2;
 }
 
-message Microblu {
+message TentacleMessage {
   enum Topic {
     digitalRead = 1;
     digitalWrite = 2;
@@ -19,11 +15,6 @@ message Microblu {
     config = 8;
   }
 
-  message Payload {
-    optional int32 pin    = 1;
-    optional string value = 2;
-  }
-
-  required Topic topic = 1;
-  required Payload payload = 2;
+  optional Topic topic = 1;
+  repeated Pin pins = 2;
 }

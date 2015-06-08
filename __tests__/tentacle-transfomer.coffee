@@ -1,9 +1,9 @@
 jest.autoMockOff()
-MicrobluTransformer = require '../microblu-transformer'
+TentacleTransformer = require '../tentacle-transformer'
 
-describe 'MicrobluTransformer', ->
+describe 'TentacleTransformer', ->
   beforeEach ->
-    @sut = new MicrobluTransformer
+    @sut = new TentacleTransformer
   it 'should instantiate', ->
     expect(@sut).toBeDefined()
 
