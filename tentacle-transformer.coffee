@@ -6,7 +6,7 @@ class TentacleTransformer
   constructor: (opts={}) ->
     @path = opts.path || __dirname + '/tentacle-message.proto'
     @messageType = opts.message || 'TentacleMessage'
-
+    @buffer = ByteBuffer.wrap(new Buffer(0))
     builder = ProtoBuf.loadProtoFile @path
     @MicrobluProto = builder.build @messageType
 
@@ -18,15 +18,11 @@ class TentacleTransformer
   addData: (data) =>
     console.log "adding data"
     return unless data
-
-    if !@buffer
-      @buffer = ByteBuffer.wrap(data)
-    else
-      @buffer = ByteBuffer.concat [@buffer, ByteBuffer.wrap(data)]
+    @buffer = ByteBuffer.concat [@buffer, ByteBuffer.wrap(data)]
 
   toJSON: () =>
     return unless @buffer?.remaining() > 0
-    
+
     try
       decoded = @MicrobluProto.decodeDelimited @buffer
       return null if !decoded
