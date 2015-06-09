@@ -1,20 +1,29 @@
-message Pin {
-  required uint32 number = 1;
-  required uint32 value = 2;
+enum Topic {
+  config = 1;
+  action = 2;
+}
+
+enum Action {
+  digitalRead  = 1;
+  digitalWrite = 2;
+  analogRead   = 3;
+  servoWrite   = 4;
+  pwmWrite     = 5;
+  i2cWrite     = 6;
+  i2cRead      = 7;
+  ignore       = 8;
 }
 
 message TentacleMessage {
-  // enum Topic {
-  //   digitalRead = 1;
-  //   digitalWrite = 2;
-  //   analogRead = 3;
-  //   servoWrite = 4;
-  //   pwmWrite = 5;
-  //   i2cWrite = 6;
-  //   i2cRead = 7;
-  //   config = 8;
-  // }
-  //
-  // optional Topic topic = 1;
-  repeated Pin pins = 2;
+  optional Topic topic = 1;
+  optional bool response = 2;
+  repeated Pin pins = 3;
+}
+
+message Pin {
+  required uint32 number = 1;
+  optional uint32 value = 2;
+  optional Action action = 3;
+  // optional uint32 readFrequency = 4;
+  optional bool pullup = 5;
 }
