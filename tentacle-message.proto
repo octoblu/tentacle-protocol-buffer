@@ -7,11 +7,12 @@ enum Action {
   digitalRead  = 1;
   digitalWrite = 2;
   analogRead   = 3;
-  servoWrite   = 4;
-  pwmWrite     = 5;
-  i2cWrite     = 6;
-  i2cRead      = 7;
-  ignore       = 8;
+  analogWrite  = 4;
+  servoWrite   = 5;
+  pwmWrite     = 6;
+  i2cWrite     = 7;
+  i2cRead      = 8;
+  ignore       = 9;
 }
 
 message TentacleMessage {
