@@ -22,16 +22,9 @@ class TentacleTransformer
 
   toJSON: () =>
     return unless @buffer?.remaining() > 0
-
-    try
-      decoded = @MicrobluProto.decodeDelimited @buffer
-      return null if !decoded
-      @buffer.compact()
-
-      return JSON.parse decoded.encodeJSON()
-
-    catch error
-      console.log('transformer error:',error.message)
-      return null
+    decoded = @MicrobluProto.decodeDelimited @buffer
+    return null if !decoded
+    @buffer.compact()
+    return JSON.parse decoded.encodeJSON()
 
 module.exports = TentacleTransformer
