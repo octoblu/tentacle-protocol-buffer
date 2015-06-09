@@ -1,10 +1,9 @@
 _ = require 'lodash'
 ProtoBuf = require 'protobufjs'
-ByteBuffer = require 'bytebuffer'
+ByteBuffer = ProtoBuf.ByteBuffer
 
 class TentacleTransformer
   constructor: (opts={}) ->
-    @buffer = new Buffer 0
     @path = opts.path || __dirname + '/tentacle-message.proto'
     @messageType = opts.message || 'TentacleMessage'
 
@@ -17,19 +16,23 @@ class TentacleTransformer
     msgProto.toBuffer()
 
   addData: (data) =>
-    @buffer = Buffer.concat([@buffer, data])
+    console.log "adding data"
+    return unless data
+
+    if !@buffer
+      @buffer = ByteBuffer.wrap(data)
+    else
+      @buffer = ByteBuffer.concat [@buffer, ByteBuffer.wrap(data)]
 
   toJSON: () =>
-    return null unless @buffer.length
-
+    return unless @buffer?.remaining() > 0
+    
     try
       decoded = @MicrobluProto.decodeDelimited @buffer
       return null if !decoded
-      result = JSON.parse decoded.encodeJSON()
-      size = ByteBuffer.wrap(@buffer).readVarint32()
-      console.error 'my size is', size
-      @buffer = @buffer.slice(size, @buffer.length)
-      return result
+      @buffer.compact()
+
+      return JSON.parse decoded.encodeJSON()
 
     catch error
       console.log('transformer error:',error.message)
