@@ -1,2 +1,2 @@
 require('coffee-script/register');
-module.exports = require('./microblu-transformer');
+module.exports = require('./tentacle-transformer');

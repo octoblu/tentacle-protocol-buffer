@@ -4,17 +4,17 @@ message Pin {
 }
 
 message TentacleMessage {
-  enum Topic {
-    digitalRead = 1;
-    digitalWrite = 2;
-    analogRead = 3;
-    servoWrite = 4;
-    pwmWrite = 5;
-    i2cWrite = 6;
-    i2cRead = 7;
-    config = 8;
-  }
-
-  optional Topic topic = 1;
+  // enum Topic {
+  //   digitalRead = 1;
+  //   digitalWrite = 2;
+  //   analogRead = 3;
+  //   servoWrite = 4;
+  //   pwmWrite = 5;
+  //   i2cWrite = 6;
+  //   i2cRead = 7;
+  //   config = 8;
+  // }
+  //
+  // optional Topic topic = 1;
   repeated Pin pins = 2;
 }

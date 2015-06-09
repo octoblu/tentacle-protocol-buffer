@@ -1,5 +1,6 @@
 _ = require 'lodash'
 ProtoBuf = require 'protobufjs'
+ByteBuffer = require 'bytebuffer'
 
 class TentacleTransformer
   constructor: (opts={}) ->
@@ -24,8 +25,10 @@ class TentacleTransformer
     try
       decoded = @MicrobluProto.decodeDelimited @buffer
       return null if !decoded
-      @buffer = @buffer.slice(decoded.calculate()+1, @buffer.length)
       result = JSON.parse decoded.encodeJSON()
+      size = ByteBuffer.wrap(@buffer).readVarint32()
+      console.error 'my size is', size
+      @buffer = @buffer.slice(size, @buffer.length)
       return result
 
     catch error
