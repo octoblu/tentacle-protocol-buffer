@@ -12,6 +12,11 @@ class TentacleTransformer
 
   toProtocolBuffer: (msg) =>
     msgProto = new @MicrobluProto msg
+    console.log "msg is: #{JSON.stringify(msgProto)}"
+    console.log "incoming message is: #{JSON.stringify(msg, null, 2)}"
+    _.each _.keysIn(@msgProto), (key) =>
+      console.log "message has key: #{key}"
+
     msgProto.encodeDelimited()
     msgProto.toBuffer()
 
