@@ -12,13 +12,12 @@ class TentacleTransformer
 
   toProtocolBuffer: (msg) =>
     msgProto = new @MicrobluProto msg
-    console.log "msg is: #{JSON.stringify(msgProto)}"
-    console.log "incoming message is: #{JSON.stringify(msg, null, 2)}"
+    #console.log "msg is: #{JSON.stringify(msgProto)}"
+    #console.log "incoming message is: #{JSON.stringify(msg, null, 2)}"
     _.each _.keysIn(@msgProto), (key) =>
       console.log "message has key: #{key}"
-
-    msgProto.encodeDelimited()
-    msgProto.toBuffer()
+    msgProto.encode()
+    return Buffer.concat [msgProto.toBuffer(), new Buffer([0])]
 
   addData: (data) =>
     console.log "adding data"
@@ -27,7 +26,7 @@ class TentacleTransformer
 
   toJSON: () =>
     return unless @buffer?.remaining() > 0
-    decoded = @MicrobluProto.decodeDelimited @buffer
+    decoded = @MicrobluProto.decode @buffer
     return null if !decoded
     @buffer.compact()
     return JSON.parse decoded.encodeJSON()
