@@ -1,31 +1,31 @@
 syntax = "proto3";
 enum Topic {
-  config = 1;
-  action = 2;
+  config = 0;
+  action = 1;
 }
 
 enum Action {
-  digitalRead  = 1;
-  digitalWrite = 2;
-  analogRead   = 3;
-  analogWrite  = 4;
-  servoWrite   = 5;
-  pwmWrite     = 6;
-  i2cWrite     = 7;
-  i2cRead      = 8;
-  ignore       = 9;
+  digitalRead  = 0;
+  digitalWrite = 1;
+  analogRead   = 2;
+  analogWrite  = 3;
+  servoWrite   = 4;
+  pwmWrite     = 5;
+  i2cWrite     = 6;
+  i2cRead      = 7;
+  ignore       = 8;
 }
 
 message TentacleMessage {
-  Topic topic = 1;
-  bool response = 2;
-  repeated Pin pins = 3;
+  Topic topic = 0;
+  bool response = 1;
+  repeated Pin pins = 2;
 }
 
 message Pin {
-  required uint32 number = 1;
-  uint32 value = 2;
-  Action action = 3;
+  uint32 number = 0;
+  uint32 value = 1;
+  Action action = 2;
   // uint32 readFrequency = 4;
-  bool pullup = 5;
+  bool pullup = 3;
 }
