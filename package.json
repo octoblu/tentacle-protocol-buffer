@@ -26,7 +26,8 @@
     "coffee-script": "^1.9.2",
     "debug": "^2.2.0",
     "lodash": "^3.9.1",
-    "protobufjs": "git://github.com/dcodeIO/ProtoBuf.js.git#master"
+    "protobufjs": "^4.0.0-b4",
+    "protocol-buffers": "^3.1.2"
   },
   "jest": {
     "scriptPreprocessor": "__tests__/helpers/coffee-preprocessor.js",
