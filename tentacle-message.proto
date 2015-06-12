@@ -17,15 +17,15 @@ enum Action {
 }
 
 message TentacleMessage {
-  Topic topic = 0;
-  bool response = 1;
-  repeated Pin pins = 2;
+  Topic topic = 1;
+  bool response = 2;
+  repeated Pin pins = 3;
 }
 
 message Pin {
-  uint32 number = 0;
-  uint32 value = 1;
-  Action action = 2;
+  uint32 number = 1;
+  uint32 value = 2;
+  Action action = 3;
   // uint32 readFrequency = 4;
-  bool pullup = 3;
+  bool pullup = 5;
 }
