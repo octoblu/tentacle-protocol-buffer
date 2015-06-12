@@ -1,3 +1,4 @@
+syntax = "proto3";
 enum Topic {
   config = 1;
   action = 2;
