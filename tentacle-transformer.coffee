@@ -15,7 +15,13 @@ class TentacleTransformer
     msgProto = new @MicrobluProto msg
     msgProto.encodeDelimited buffer
     buffer.flip()
-    return Buffer.concat [buffer.buffer, new Buffer([0])]
+    console.log 'message of length', buffer.buffer.length, 'with head of', buffer.readVarint32(), 'and first byte', buffer.buffer[0]
+    byteString = ""
+    for num in [0..buffer.buffer.length-1]
+      byteString += buffer.readInt8(num).toString(16).toUpperCase()
+    console.log 'look at my string, it tastes like lemonade'
+    console.log byteString
+    buffer.buffer
     #return buffer.buffer
 
     #console.log "msg is: #{JSON.stringify(msgProto)}"
