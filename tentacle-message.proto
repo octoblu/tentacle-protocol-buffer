@@ -1,7 +1,8 @@
 syntax = "proto2";
-enum Topic {
+enum TentacleMessageTopic {
   config = 0;
   action = 1;
+  authentication= 2;
 }
 
 enum Action {
@@ -17,9 +18,10 @@ enum Action {
 }
 
 message TentacleMessage {
-  optional Topic topic = 1;
+  optional TentacleMessageTopic topic = 1;
   optional bool response = 2;
   repeated Pin pins = 3;
+  optional MeshbluAuthentication authentication = 4;
 }
 
 message Pin {

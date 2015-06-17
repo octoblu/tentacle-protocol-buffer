@@ -13,7 +13,7 @@ class TentacleTransformer
   toProtocolBuffer: (msg) =>
     buffer = new ByteBuffer()
     msgProto = new @MicrobluProto msg
-    msgProto.encodeDelimited buffer    
+    msgProto.encodeDelimited buffer
     buffer.flip()
     buffer.toBuffer()
 

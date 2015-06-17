@@ -1,2 +1,2 @@
-MeshbluAuthentication.uuid max_size:36
-MeshbluAuthentication.token max_size:40
+MeshbluAuthentication.uuid max_size:64
+MeshbluAuthentication.token max_size:64
