@@ -13,31 +13,9 @@ class TentacleTransformer
   toProtocolBuffer: (msg) =>
     buffer = new ByteBuffer()
     msgProto = new @MicrobluProto msg
-    msgProto.encodeDelimited buffer
+    msgProto.encodeDelimited buffer    
     buffer.flip()
-    console.log 'message of length', buffer.buffer.length, 'with head of', buffer.readVarint32(), 'and first byte', buffer.buffer[0]
-    byteString = ""
-    for num in [0..buffer.buffer.length-1]
-      byteString += buffer.readInt8(num).toString(16).toUpperCase()
-    console.log 'look at my string, it tastes like lemonade'
-    console.log byteString
-    buffer.buffer
-    #return buffer.buffer
-
-    #console.log "msg is: #{JSON.stringify(msgProto)}"
-    #console.log "incoming message is: #{JSON.stringify(msg, null, 2)}"
-    # wut = new ByteBuffer(0)
-    # wut = msgProto.encodeDelimited(wut)
-    # #return Buffer.concat [msgProto.toBuffer(), new Buffer([0])]
-    # buf = msgProto.toBuffer()
-    # console.log 'backing buffer is of length', wut.buffer.length, wut.buffer[0]
-    # console.log 'header says I have', wut.readVarint32(0)
-    # console.log 'testing first char', buf[0]
-    # console.log 'message to device has length', buf.length
-    # lenBuf = new ByteBuffer(4)
-    # newBuf.writeVarint32(buf.length,0)
-    #
-    # return
+    buffer.toBuffer()
 
   addData: (data) =>
     console.log "adding data"
