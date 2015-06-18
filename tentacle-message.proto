@@ -29,7 +29,7 @@ message Pin {
   optional uint32 value = 2;
   optional Action action = 3;
   // uint32 readFrequency = 4;
-  optional bool pullup = 5;
+  optional bool pullup = 4;
 }
 
 message MeshbluAuthentication {
