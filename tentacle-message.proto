@@ -1,8 +1,9 @@
 syntax = "proto2";
-enum TentacleMessageTopic {
-  config = 0;
-  action = 1;
-  authentication = 2;
+
+enum Topic {
+  ignore       = 0;
+  configure    = 1;
+  immediate    = 2;
 }
 
 enum Action {
@@ -18,21 +19,22 @@ enum Action {
 }
 
 message TentacleMessage {
-  optional TentacleMessageTopic topic = 1;
-  optional bool response = 2;
-  repeated Pin pins = 3;
-  optional MeshbluAuthentication authentication = 4;
+  optional Authentication authentication = 1;
+  repeated Pin pins = 2;
 }
 
 message Pin {
-  optional uint32 number = 1;
-  optional uint32 value = 2;
-  optional Action action = 3;
-  // uint32 readFrequency = 4;
-  optional bool pullup = 5;
+  optional uint32 number   = 1;
+  optional uint32 value    = 2;
+  optional uint32 delay    = 3;
+  optional bool   pullup   = 4;
+  optional string id       = 5;
+  optional Topic  topic    = 6;
+  optional Action action   = 7;
+  optional bool   response = 8;
 }
 
-message MeshbluAuthentication {
-  optional string uuid = 1;
-  optional string token = 2;
+message Authentication {
+  optional string id = 1;
+  optional string key = 2;
 }
