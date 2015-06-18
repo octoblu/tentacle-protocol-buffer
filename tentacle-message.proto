@@ -2,19 +2,19 @@ syntax = "proto2";
 enum TentacleMessageTopic {
   config = 0;
   action = 1;
-  authentication= 2;
+  authentication = 2;
 }
 
 enum Action {
-  digitalRead  = 0;
-  digitalWrite = 1;
-  analogRead   = 2;
-  analogWrite  = 3;
-  servoWrite   = 4;
-  pwmWrite     = 5;
-  i2cWrite     = 6;
-  i2cRead      = 7;
-  ignore       = 8;
+  ignore       = 0;
+  digitalRead  = 1;
+  digitalWrite = 2;
+  analogRead   = 3;
+  analogWrite  = 4;
+  servoWrite   = 5;
+  pwmWrite     = 6;
+  i2cWrite     = 7;
+  i2cRead      = 8;
 }
 
 message TentacleMessage {
