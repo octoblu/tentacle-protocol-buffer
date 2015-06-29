@@ -20,10 +20,11 @@ enum Action {
 }
 
 message TentacleMessage {
-  optional TentacleMessageTopic topic = 1;
-  optional bool response = 2;
-  repeated Pin pins = 3;
-  optional MeshbluAuthentication authentication = 4;
+  optional uint32 version = 1;
+  optional TentacleMessageTopic topic = 2;
+  optional bool response = 3;
+  repeated Pin pins = 4;
+  optional MeshbluAuthentication authentication = 5;
 }
 
 message Pin {
