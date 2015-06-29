@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: serveradmin@octoblu.com
+  api_key:
+    secure: w0ysTnRx1tOtXNjhIBMndbBcrBVKkKXsNvQss7WUFrXkIf0UrxvIZvBg5boWmfc5N/2hbPRyNJ+6K5PeAcI4yCmEv6siIvefGINMihtPyVKE09Iizwi004yQmT/Ug+8uxgiuGkCIHo2cei9bvKfZRMTJ2csLgRp+9AAcGQ1tANqS/Tfij6+c0pr1tkuk7SEzTEi0EL/dLY4lSZkZhyXNW589OWNn0L6FXzuQX4LTSMI1O2lMV0+bBxUppTPS/Oj0idV/V9ny5lKRNoVVw2lFRW63ALjqHhZksHHbp0FlaQAhEK15U3FHStp//xXlyH+yNPTbD7kZUyx+1L4qLF9l8TWW6oyZRsQVePxeQgAcxxV8Uj4A81iUnZfTk8fogb7GCWOLEyRxPQQv8tiXmCRKM0enkNwQq7paFm710T22lrY0KsIROEmSyU/bTXLPjllz/eRCwMxjiJsbRMV9KVD9kAQxVdMxHZtAm4UCURRN9tRzYff3zRVexXGXL9UHrQqOV7Iyv3xtyuXpW5jpZAp0HPMkPzAk/VCq7aPKJuYSddKiTbKVMa0eqqqtPFqEvQIE6Ln+xf0//MHjwazq1A8+3NpYIB/rzFoG/z/ZHRwUg38yxyvNgf2yswUnh3Y6TfiytZLp3JsAqmPV7XU6W+Sut3gUkla4Q7sMf4lxB6Petzw=
+  on:
+    tags: true
+    repo: octoblu/tentacle-protocol-buffer
