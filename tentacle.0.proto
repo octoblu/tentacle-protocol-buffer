@@ -2,62 +2,55 @@ syntax = "proto2";
 
 message Header {
   optional CommandType cmd       = 1;
-  optional bool        response  = 2;
   optional uint32      messageId = 3;
   optional uint32      qos       = 4;
 }
 
 enum CommandType {
-  UnknownCmd    = 0;
+  ConfigSet  = 10;
+  ConfigGet  = 11;
+  ConfigInfo = 12;
 
-  SetConfigCmd  = 10;
+  SendTo     = 20;
+  SendPins   = 21;
 
-  GetConfigCmd  = 11;
-  ConfigInfoCmd = 12;
+  Delay      = 30;
 
-  GetBoardCmd   = 15;
-  BoardInfoCmd  = 16;
+  ProgStart  = 40;
+  ProgEnd    = 41;
+  GetProg    = 42;
 
-  SendToCmd     = 20;
-  SendPinsCmd   = 21;
+  Auth       = 50;
+  AuthFailed = 51;
+  Register   = 52;
 
-  DelayCmd      = 30;
-
-  ProgStartCmd  = 40;
-  ProgEndCmd    = 41;
-  GetProgCmd    = 42;
-
-  AuthCmd       = 50;
-  RegisterCmd   = 51;
-  AuthFailedCmd = 52;
-
-  LoadProtoCmd  = 60;
+  LoadProto  = 60;
 }
 
 message Null {}
 
 enum PinMode {
-  IgnoreMode  = 0;
-  DigitalMode = 1;
-  AnalogMode  = 2;
-  PwmMode     = 4;
-  ServoMode   = 3;
-  I2cMode     = 5;
-  SpiMode     = 0;
-  PullUpMode  = 6;
+  Ignore  = 0;
+  Digital = 1;
+  Analog  = 2;
+  Pwm     = 4;
+  Servo   = 3;
+  I2c     = 5;
+  Spi     = 0;
+  PullUp  = 6;
 }
 
 enum PinAction {
-  InfoAction  = 0;
-  ReadAction  = 1;
-  WriteAction = 2;
+  Info  = 0;
+  Read  = 1;
+  Write = 2;
 }
 
 message PinData {
-  repeated uint32    pinMask = 1 [packed=true];
-  repeated uint32    payload = 2 [packed=true];
-  optional PinMode   mode    = 3;
-  optional PinAction action  = 4;
+  repeated uint32    number   = 1 [packed=true];
+  repeated uint32    payload  = 2 [packed=true];
+  optional PinMode   mode     = 3;
+  optional PinAction action   = 4;
 }
 
 message PinInfo {
