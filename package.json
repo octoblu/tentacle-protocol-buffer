@@ -1,6 +1,6 @@
 {
   "name": "tentacle-protocol-buffer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The Protocols for the Elders of The Tentacle",
   "main": "index.js",
   "scripts": {

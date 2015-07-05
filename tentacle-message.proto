@@ -25,7 +25,9 @@ message TentacleMessage {
   optional bool response = 3;
   repeated Pin pins = 4;
   optional MeshbluAuthentication authentication = 5;
-  optional bytes payload = 6;
+  optional bool broadcastPins = 6;
+  optional uint32 broadcastInterval = 7;
+  optional bytes payload = 8;
 }
 
 message Pin {
