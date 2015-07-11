@@ -4,6 +4,9 @@
     "pins"
   ],
   "properties": {
+    "data" : {
+      "type": "string"
+    },
     "pins": {
      "title": "Pin Configuration",
       "type": "array",
