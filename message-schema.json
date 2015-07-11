@@ -4,7 +4,7 @@
     "pins"
   ],
   "properties": {
-    "data" : {
+    "customData" : {
       "type": "string"
     },
     "pins": {
