@@ -28,17 +28,6 @@
               "i2cRead",
               "ignore"
                ]
-          },
-          "broadcastPins" : {
-            "title" : "Broadcast Pins?",
-            "type": "boolean",
-            "default": false
-          },
-
-          "broadcastInterval" : {
-            "title" : "Broadcast Interval (ms)",
-            "type" : "number",
-            "default" : 2000
           }
         },
         "required": [
@@ -46,6 +35,17 @@
           "action"
         ]
       }
+    },    
+    "broadcastPins" : {
+      "title" : "Broadcast Pins?",
+      "type": "boolean",
+      "default": false
+    },
+
+    "broadcastInterval" : {
+      "title" : "Broadcast Interval (ms)",
+      "type" : "number",
+      "default" : 2000
     }
   }
 }
