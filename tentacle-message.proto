@@ -3,6 +3,7 @@ enum TentacleMessageTopic {
   config = 0;
   action = 1;
   authentication = 2;
+  ping = 3;
 }
 
 enum Action {
