@@ -7,6 +7,7 @@
     "pins": {
      "title": "Pin Configuration",
       "type": "array",
+      "default": [],
       "items": {
         "type": "object",
         "properties": {
@@ -35,13 +36,12 @@
           "action"
         ]
       }
-    },    
+    },
     "broadcastPins" : {
       "title" : "Broadcast Pins?",
       "type": "boolean",
       "default": false
     },
-
     "broadcastInterval" : {
       "title" : "Broadcast Interval (ms)",
       "type" : "number",

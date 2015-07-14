@@ -10,6 +10,7 @@
     "pins": {
      "title": "Pin Configuration",
       "type": "array",
+      "default": [],
       "items": {
         "type": "object",
         "properties": {
