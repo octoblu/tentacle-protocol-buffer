@@ -13,7 +13,8 @@
         "properties": {
           "number": {
             "title": "Number",
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
           },
           "action": {
             "title": "Action",
@@ -45,7 +46,8 @@
     "broadcastInterval" : {
       "title" : "Broadcast Interval (ms)",
       "type" : "number",
-      "default" : 2000
+      "default" : 2000,
+      "minimum": 15
     }
   }
 }
