@@ -1,0 +1,11 @@
+{
+  "options": {
+    "port" : "/dev/tty.usbmodem14110000.1",
+    "broadcastPins" : true,
+    "broadcastInterval": 2500,
+    "pins": [
+      {"action" : "digitalWrite", "number" : 7},
+      {"action" : "analogRead", "number" : 15}
+    ]
+  }
+}
